@@ -5,8 +5,8 @@ import fm from 'front-matter'
 import PostCard from '@/components/Post.vue'
 import ReadingCard from '@/components/Reading.vue'
 
-const post_files = import.meta.glob('/src/posts/*.md', { eager: true, as: 'raw' })
-const reading_files = import.meta.glob('/src/readings/*.txt', { eager: true, as: 'raw' })
+const post_files = import.meta.glob('/src/posts/*.md', { eager: true, query: '?raw' })
+const reading_files = import.meta.glob('/src/readings/*.txt', { eager: true, query: '?raw' })
 
 const posts = Object.entries(post_files).map(([path, raw]) => {
   const content = typeof raw === 'string' ? raw : (raw as any)?.default;
@@ -34,10 +34,12 @@ const readings = Object.entries(reading_files).map(([path, raw]) => {
   const { attributes, body } = fm<Omit<Reading, 'slug' | 'content'>>(content);
 
   return {
-    slug: path.split('/').pop()!.replace('.md', ''),
+    slug: path.split('/').pop()!.replace('.txt', ''),
     ...attributes,
   } satisfies Reading;
 });
+
+console.log(reading_files)
 </script>
 
 <template>
