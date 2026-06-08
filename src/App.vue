@@ -8,12 +8,8 @@ import PostCard from './components/Post.vue'
 <template>
   <div class="main">
     <header>
-      <div style="font-size: 1.2rem; margin-bottom: 5px; color: #2596be">
-        Simon Benedict A. Magleo
-      </div>
-      <div>
-        Undergraduate, Department of Computer Science, University of the Philippines - Diliman
-      </div>
+      <div style="font-size: 1.2rem; margin-bottom: 5px">Simon Benedict A. Magleo</div>
+      <div>3rd year, Department of Computer Science, University of the Philippines - Diliman</div>
       <div style="font-size: 0.8rem">
         E-mail: <a href="mailto:simon.benedict.magleo@gmail.com">simon.benedict.magleo@gmail.com</a>
       </div>

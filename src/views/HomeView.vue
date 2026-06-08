@@ -8,7 +8,7 @@ import ReadingCard from '@/components/Reading.vue'
 const post_files = import.meta.glob('/src/posts/*.md', { eager: true, query: '?raw' })
 const reading_files = import.meta.glob('/src/readings/*.txt', { eager: true, query: '?raw' })
 
-const posts = Object.entries(post_files).map(([path, raw]) => {
+let posts = Object.entries(post_files).map(([path, raw]) => {
   const content = typeof raw === 'string' ? raw : (raw as any)?.default;
 
   if (typeof content !== 'string') {
@@ -39,7 +39,13 @@ const readings = Object.entries(reading_files).map(([path, raw]) => {
   } satisfies Reading;
 });
 
-console.log(reading_files)
+posts.sort((a, b) => {
+  return new Date(b.date).getTime() - new Date(a.date).getTime()
+})
+
+readings.sort((a, b) => {
+  return new Date(b.last_updated).getTime() - new Date(a.last_updated).getTime()
+})
 </script>
 
 <template>
@@ -57,7 +63,7 @@ console.log(reading_files)
       <div class="intro">
         <img src="/src/assets/me2.jpg" style="width: 300px; margin-right: 10px" />
         <p style="min-width: 0">
-          Hi, I'm Simon! An aspiring mathemetician, currently in my 3rd year of Computer Science at
+          Hi, I'm Simon! An aspiring mathematician, currently in my 3rd year of Computer Science at
           UP Diliman. I mainly find myself interested in theoretical fields, though anything that
           has to do with calculations and equations on a blackboard piques my interest. <br /><br />
           When I'm not studying Math and not procastinating studying it either, you will probably

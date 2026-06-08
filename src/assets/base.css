@@ -60,7 +60,7 @@
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
+  color: black;
   font-family:
     'Helvetica', Times, serif;
   font-size: 15px;

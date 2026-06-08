@@ -1,0 +1,6 @@
+---
+title: 'Dusseau & Dusseau - Operating Systems: Three Easy Pieces'
+thumbnail: "https://pages.cs.wisc.edu/~remzi/OSTEP/book-cover-two.jpg"
+status: 'FINISHED'
+last_updated: 2025-12-03
+---

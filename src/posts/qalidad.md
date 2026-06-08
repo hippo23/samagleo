@@ -1,6 +1,6 @@
 ---
 title: 'QA-Lidad: An Auditing System for UP Diliman - Department of Computer Science'
-summary: "Our final project in CS140 (Operating Systems) made us recreate the PageRank calculator using only the C-standard library. No templates were given, strictly mathematical formulas. Through grit (and a good amount of luck), we managed to pull through."
+summary: "A prototyped application to streamline auditing analytics for departments across UP Diliman."
 thumbnail: /images/sqrt2.jpg
 date: 2026-5-17
 ---

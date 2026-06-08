@@ -1,0 +1,6 @@
+---
+title: 'Kurose - Computer Networking'
+thumbnail: "https://www.pearson.com/store/pmccommercewebservices/v2/medias/size-W370-A1030-00-11-79-A103000117955-A103000117955-Lrg.jpg?context=bWFzdGVyfGltYWdlc3wyMzA1Mzd8aW1hZ2UvanBlZ3xzeXMtbWFzdGVyL2ltYWdlcy9oNjMvaDE3LzE1MTcwMTYzMTc5NTUwL3NpemVfVzM3MF8vQTEwMzAvMDAvMTEvNzkvQTEwMzAwMDExNzk1NS9BMTAzMDAwMTE3OTU1X0xyZy5qcGd8NWM1ODZkMzZiYTc3NDVmNDg2YTliZTA0OTk0NWJkOTkyN2Q0YWZmNmViNTNjMjZmM2YxYWY5MjA3MGEwNjUxMA"
+status: 'FINISHED'
+last_updated: 2026-05-29
+---

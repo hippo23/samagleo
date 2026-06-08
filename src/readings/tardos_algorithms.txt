@@ -1,0 +1,6 @@
+---
+title: 'Tardos & Kleinberg - Algorithm Design'
+thumbnail: "https://m.media-amazon.com/images/I/81FXnBrq6hL._UF1000,1000_QL80_.jpg"
+status: 'FINISHED'
+last_updated: 2025-6-05
+---
