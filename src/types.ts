@@ -11,6 +11,6 @@ export interface Reading {
   slug?: string
   title: string
   thumbnail: string
-  status: boolean
+  status: string
   last_updated: string
 }

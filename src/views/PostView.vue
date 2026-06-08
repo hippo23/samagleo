@@ -14,6 +14,7 @@ const route = useRoute();
 const posts = import.meta.glob("/src/posts/*.md", { eager: true, as: "raw" });
 
 const post_raw = posts[`/src/posts/${route.params.slug}.md`];
+if (!post_raw) throw new Error('Post not found')
 const { attributes, body } = fm<Omit<Post, 'slug' | 'content'>>(post_raw)
 const post =  {
   ...attributes,

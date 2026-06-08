@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Post } from '../types'
 import type { PropType } from 'vue'
-import { defineProps, computed } from 'vue'
+import { computed } from 'vue'
 import MarkdownIt from 'markdown-it'
 import mathjax3 from 'markdown-it-mathjax3'
 
