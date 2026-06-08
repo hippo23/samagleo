@@ -1,0 +1,6 @@
+---
+title: 'David Morin - Classical Mechanics'
+thumbnail: "https://davidmorin.physics.fas.harvard.edu/sites/g/files/omnuum12331/files/styles/hwp_1_1__720x720_scale/public/2025-10/Morincover.jpg?itok=RCn4VV1F"
+status: 'reading'
+last_updated: 2026-05-08
+---
