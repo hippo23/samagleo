@@ -1,0 +1,6 @@
+---
+title: 'Landau & Lifshitz - Mechanics'
+thumbnail: "https://m.media-amazon.com/images/I/61apkEGuQ2L._AC_UF1000,1000_QL80_.jpg"
+status: 'reading'
+last_updated: 2026-05-01
+---

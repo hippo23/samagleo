@@ -1,0 +1,6 @@
+---
+title: 'Vladimir Zorich - Analysis I'
+thumbnail: "https://m.media-amazon.com/images/I/519ZQssreOL._AC_UF1000,1000_QL80_.jpg"
+status: 'reading'
+last_updated: 2026-05-01
+---

@@ -1,0 +1,6 @@
+---
+title: 'V.I Smirnov - Linear Algebra and Group Theory'
+thumbnail: "https://prodimage.images-bn.com/pimages/9780486265452_p0_v2_s1200x630.jpg"
+status: 'reading'
+last_updated: 2026-05-01
+---
