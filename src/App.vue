@@ -3,17 +3,6 @@ import type { Post } from './types'
 import { RouterLink, RouterView } from 'vue-router'
 import fm from 'front-matter'
 import PostCard from './components/Post.vue'
-
-const files = import.meta.glob('/src/posts/*.md', { eager: true, as: 'raw' })
-
-const posts = Object.entries(files).map(([path, raw]) => {
-  const { attributes, body } = fm<Omit<Post, 'slug' | 'content'>>(raw)
-  return {
-    slug: path.split('/').pop()!.replace('.md', ''),
-    ...attributes,
-    content: body,
-  } satisfies Post
-})
 </script>
 
 <template>

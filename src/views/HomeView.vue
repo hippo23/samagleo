@@ -9,21 +9,35 @@ const post_files = import.meta.glob('/src/posts/*.md', { eager: true, as: 'raw' 
 const reading_files = import.meta.glob('/src/readings/*.txt', { eager: true, as: 'raw' })
 
 const posts = Object.entries(post_files).map(([path, raw]) => {
-  const { attributes, body } = fm<Omit<Post, 'slug' | 'content'>>(raw)
+  const content = typeof raw === 'string' ? raw : (raw as any)?.default;
+
+  if (typeof content !== 'string') {
+    throw new Error(`Post is not string: ${path}`);
+  }
+
+  const { attributes, body } = fm<Omit<Post, 'slug' | 'content'>>(content);
+
   return {
     slug: path.split('/').pop()!.replace('.md', ''),
     ...attributes,
     content: body,
-  } satisfies Post
-}).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  } satisfies Post;
+});
 
 const readings = Object.entries(reading_files).map(([path, raw]) => {
-  const { attributes, body } = fm<Omit<Reading, 'slug' | 'content'>>(raw)
+  const content = typeof raw === 'string' ? raw : (raw as any)?.default;
+
+  if (typeof content !== 'string') {
+    throw new Error(`Reading is not string: ${path}`);
+  }
+
+  const { attributes, body } = fm<Omit<Reading, 'slug' | 'content'>>(content);
+
   return {
     slug: path.split('/').pop()!.replace('.md', ''),
     ...attributes,
-  } satisfies Reading
-}).sort((a, b) => new Date(b.last_updated).getTime() - new Date(a.last_updated).getTime())
+  } satisfies Reading;
+});
 </script>
 
 <template>
