@@ -31,6 +31,7 @@ import PostCard from './components/Post.vue'
   flex-direction: column;
   gap: 5px;
   height: fit-content;
+  padding: 10px;
   padding-bottom: 50px;
 }
 </style>

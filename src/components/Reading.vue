@@ -29,7 +29,7 @@ const date = computed(() =>
 
 <style scoped>
 .main {
-  width: 100%;
+  width: fit-content;
   height: 100px;
   display: flex;
   flex-direction: row;

@@ -61,10 +61,9 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
   font-family:
     'Helvetica', Times, serif;
-  font-size: 12px;
+  font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

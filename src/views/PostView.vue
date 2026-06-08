@@ -5,9 +5,15 @@ import { computed } from 'vue'
 import fm from 'front-matter'
 import MarkdownIt from 'markdown-it'
 import mathjax3 from 'markdown-it-mathjax3'
+import hljs from 'highlight.js'
+import highlight from 'markdown-it-highlightjs'
+
+import 'highlight.js/styles/github.css'
+
 
 const md = new MarkdownIt({ html: true })
 md.use(mathjax3)
+md.use(highlight, { hljs })
 
 const route = useRoute();
 
@@ -66,6 +72,11 @@ const date = computed(() =>
 .main {
   width: 100%;
   height: fit-content;
+  min-width: 0;
+}
+
+.main * {
+  min-width: 0;
 }
 
 .main :deep(h1),
@@ -81,5 +92,17 @@ const date = computed(() =>
 .main :deep(ol) {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}
+
+.main :deep(pre) {
+  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.main :deep(code) {
+  white-space: pre;
+  font-size: 0.75rem;
+  min-width: 0;
 }
 </style>

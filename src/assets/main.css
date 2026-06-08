@@ -2,6 +2,7 @@
 
 #app {
   width: 728px;
+  max-width: 100vw;
   font-weight: normal;
   padding-top: 2rem;
 }

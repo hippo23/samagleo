@@ -54,24 +54,26 @@ console.log(reading_files)
     "
   >
     <div style="margin-top: 5px; display: flex; flex-direction: column; gap: 5px">
-      <div style="font-s">
-        <img src="/src/assets/me2.jpg" style="width: 300px; margin-right: 10px" align="left" />
-        Hi, I'm Simon! An aspiring mathemetician, currently in my 3rd year of Computer Science at UP
-        Diliman. I mainly find myself interested in theoretical fields, though anything that has to
-        do with calculations and equations on a blackboard piques my interest. <br /><br />
-        When I'm not studying Math and not procastinating studying it either, you will probably find
-        me enjoying hiking, bouldering, and nature-walking in the pines of my hometown in Baguio
-        City, Benguet.
+      <div class="intro">
+        <img src="/src/assets/me2.jpg" style="width: 300px; margin-right: 10px" />
+        <p style="min-width: 0">
+          Hi, I'm Simon! An aspiring mathemetician, currently in my 3rd year of Computer Science at
+          UP Diliman. I mainly find myself interested in theoretical fields, though anything that
+          has to do with calculations and equations on a blackboard piques my interest. <br /><br />
+          When I'm not studying Math and not procastinating studying it either, you will probably
+          find me enjoying hiking, bouldering, and nature-walking in the pines of my hometown in
+          Baguio City, Benguet.
+        </p>
       </div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 5px">
-      <h3 style="font-size: 1.1rem">Readings, Digests, & (Some) Solutions</h3>
+    <div style="display: flex; flex-direction: column; gap: 5px" class="readings">
+      <h3 style="font-size: 1.1rem">Overdue Readings, Digests, & Solutions (Soon)</h3>
       <hr />
       <div style="display: flex; flex-direction: column; gap: 20px">
         <ReadingCard v-for="reading in readings" :key="reading.slug" :reading="reading" />
       </div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 5px">
+    <div style="display: flex; flex-direction: column; gap: 5px" class="posts">
       <h3 style="font-size: 1.1rem">Projects</h3>
       <hr />
       <div style="display: flex; flex-direction: column; gap: 20px">
@@ -80,3 +82,23 @@ console.log(reading_files)
     </div>
   </div>
 </template>
+
+<style scoped>
+.intro {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 728px) {
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.readings * {
+  min-width: 0;
+}
+</style>

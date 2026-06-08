@@ -35,16 +35,10 @@ const date = computed(() =>
       <RouterLink
         :to="`/posts/${post.slug}`"
         v-html="title"
-        style="
-          font-size: 0.95rem;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-          margin-bottom: 10px;
-        "
+        style="font-size: 0.95rem; margin-bottom: 10px; min-width: 0"
       />
-      <p v-html="summary" style="padding-bottom: 10px" />
-      <p style="font-size: 0.7rem; margin-top: auto">
+      <p v-html="summary" style="padding-bottom: 10px; min-width: 0" />
+      <p style="font-size: 0.7rem; margin-top: auto; min-width: 0">
         {{ date }}
       </p>
     </div>
@@ -52,12 +46,6 @@ const date = computed(() =>
 </template>
 
 <style scoped>
-@media (max-width: 728px) {
-  .thumbnail {
-    display: none;
-  }
-}
-
 .main {
   width: 100%;
   display: flex;
@@ -71,9 +59,5 @@ const date = computed(() =>
   flex-direction: column;
   flex-grow: 1;
   min-width: 0;
-}
-
-.thumbnail {
-  width: 128px;
 }
 </style>
