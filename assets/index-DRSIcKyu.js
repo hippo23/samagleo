@@ -281,4 +281,219 @@ That is just a taste of the logic that went into the scheduler, so you may refer
       ${a}
     </span>
   `}var bp=Object.defineProperty,xp=Object.getOwnPropertyDescriptor,Sp=Object.getOwnPropertyNames,Cp=Object.prototype.hasOwnProperty,wp=(e,t)=>function(){return e&&(t=(0,e[Sp(e)[0]])(e=0)),t},Tp=(e,t)=>function(){return t||(0,e[Sp(e)[0]])((t={exports:{}}).exports,t),t.exports},Ep=(e,t,n,r)=>{if(t&&typeof t==`object`||typeof t==`function`)for(var i=Sp(t),a=0,o=i.length,s;a<o;a++)s=i[a],!Cp.call(e,s)&&s!==n&&bp(e,s,{get:(e=>t[e]).bind(null,s),enumerable:!(r=xp(t,s))||r.enumerable});return e},Dp=(e,t,n)=>(Ep(e,t,`default`),n&&Ep(n,t,`default`)),Op={};Dp(Op,gp);var kp=wp({"src/mathjax.mts":(()=>{})}),Ap=Tp({"src/index.ts":((e,t)=>{kp();function n(e,t){let n=e.posMax,r=!0,i=!0,a=t>0?e.src.charCodeAt(t-1):-1,o=t+1<=n?e.src.charCodeAt(t+1):-1;return(a===32||a===9||o>=48&&o<=57)&&(i=!1),(o===32||o===9)&&(r=!1),{can_open:r,can_close:i}}function r(e,t){if(e.src[e.pos]!==`$`)return!1;let r=n(e,e.pos);if(!r.can_open)return t||(e.pending+=`$`),e.pos+=1,!0;let i=e.pos+1,a=i;for(;(a=e.src.indexOf(`$`,a))!==-1;){let t=a-1;for(;e.src[t]===`\\`;)--t;if((a-t)%2==1)break;a+=1}if(a===-1)return t||(e.pending+=`$`),e.pos=i,!0;if(a-i===0)return t||(e.pending+=`$$`),e.pos=i+1,!0;if(r=n(e,a),!r.can_close)return t||(e.pending+=`$`),e.pos=i,!0;if(!t){let t=e.push(`math_inline`,`math`,0);t.markup=`$`,t.content=e.src.slice(i,a)}return e.pos=a+1,!0}function i(e,t,n,r){let i,a,o=!1,s=e.bMarks[t]+e.tShift[t],c=e.eMarks[t],l=``;if(s+2>c||e.src.slice(s,s+2)!==`$$`)return!1;s+=2;let u=e.src.slice(s,c);if(r)return!0;for(u.trim().slice(-2)===`$$`&&(u=u.trim().slice(0,-2),o=!0),i=t;!o&&(i++,!(i>=n||(s=e.bMarks[i]+e.tShift[i],c=e.eMarks[i],s<c&&e.tShift[i]<e.blkIndent)));)e.src.slice(s,c).trim().slice(-2)===`$$`&&(a=e.src.slice(0,c).lastIndexOf(`$$`),l=e.src.slice(s,a),o=!0);e.line=i+1;let d=e.push(`math_block`,`math`,0);return d.block=!0,d.content=(u&&u.trim()?u+`
-`:``)+e.getLines(t+1,i,e.tShift[t],!0)+(l&&l.trim()?l:``),d.map=[t,e.line],d.markup=`$$`,!0}let a=e=>{e.inline.ruler.after(`escape`,`math_inline`,r),e.block.ruler.after(`blockquote`,`math_block`,i,{alt:[`paragraph`,`reference`,`blockquote`,`list`]}),e.renderer.rules.math_inline=function(e,t){return Op.tex2svgHtml(e[t].content,{display:!1})},e.renderer.rules.math_block=function(e,t){return Op.tex2svgHtml(e[t].content,{display:!0})}};a.default=a,t.exports=a})})(),jp={class:`main`},Mp={class:`msg_body`},Np=[`innerHTML`],Pp={style:{"font-size":`0.7rem`,"margin-top":`auto`}},Fp=Gn({__name:`Post`,props:{post:{type:Object,required:!0}},setup(e){let t=new dp;t.use(Ap);let n=e,r=J(()=>t.renderInline(n.post.title)),i=J(()=>t.renderInline(n.post.summary)),a=J(()=>new Date(n.post.date).toLocaleDateString(`en-US`,{year:`numeric`,month:`long`,day:`numeric`}));return(t,n)=>{let o=gr(`RouterLink`);return Ri(),Ui(`div`,jp,[K(`div`,Mp,[Yi(o,{to:`/posts/${e.post.slug}`,innerHTML:r.value,style:{"font-size":`0.95rem`,"text-overflow":`ellipsis`,"white-space":`nowrap`,overflow:`hidden`,"margin-bottom":`10px`}},null,8,[`to`,`innerHTML`]),K(`p`,{innerHTML:i.value,style:{"padding-bottom":`10px`}},null,8,Np),K(`p`,Pp,we(a.value),1)])])}}}),Ip=(e,t)=>{let n=e.__vccOpts||e;for(let[e,r]of t)n[e]=r;return n},Lp=Ip(Fp,[[`__scopeId`,`data-v-fb2ae65e`]]),Rp={class:`main`},zp=Ip(Gn({__name:`App`,setup(e){return Object.entries(Object.assign({"/src/posts/heightmap.md":yo,"/src/posts/pagerank.md":xo,"/src/posts/prioritypark.md":Co,"/src/posts/qalidad.md":To,"/src/posts/xv6_scheduler.md":Do})).map(([e,t])=>{let{attributes:n,body:r}=(0,il.default)(t);return{slug:e.split(`/`).pop().replace(`.md`,``),...n,content:r}}),(e,t)=>(Ri(),Ui(`div`,Rp,[t[0]||=K(`header`,null,[K(`div`,{style:{"font-size":`1.2rem`,"margin-bottom":`5px`,color:`#2596be`}},` Simon Benedict A. Magleo `),K(`div`,null,` Undergraduate, Department of Computer Science, University of the Philippines - Diliman `),K(`div`,{style:{"font-size":`0.8rem`}},[$i(` E-mail: `),K(`a`,{href:`mailto:simon.benedict.magleo@gmail.com`},`simon.benedict.magleo@gmail.com`)])],-1),t[1]||=K(`hr`,null,null,-1),Yi(Zt(Tc))]))}}),[[`__scopeId`,`data-v-872645db`]]),Bp=c({default:()=>Vp}),Vp=`data:text/plain;base64,LS0tCnRpdGxlOiAnTGFuZGF1ICYgTGlmc2hpdHogLSBNZWNoYW5pY3MnCnRodW1ibmFpbDogImh0dHBzOi8vbS5tZWRpYS1hbWF6b24uY29tL2ltYWdlcy9JLzYxYXBrRUd1UTJMLl9BQ19VRjEwMDAsMTAwMF9RTDgwXy5qcGciCnN0YXR1czogJ3JlYWRpbmcnCmxhc3RfdXBkYXRlZDogMjAyNi0wNS0wMQotLS0K`,Hp=c({default:()=>Up}),Up=`data:text/plain;base64,LS0tCnRpdGxlOiAnVi5JIFNtaXJub3YgLSBMaW5lYXIgQWxnZWJyYSBhbmQgR3JvdXAgVGhlb3J5Jwp0aHVtYm5haWw6ICJodHRwczovL3Byb2RpbWFnZS5pbWFnZXMtYm4uY29tL3BpbWFnZXMvOTc4MDQ4NjI2NTQ1Ml9wMF92Ml9zMTIwMHg2MzAuanBnIgpzdGF0dXM6ICdyZWFkaW5nJwpsYXN0X3VwZGF0ZWQ6IDIwMjYtMDUtMDEKLS0tCg==`,Wp=c({default:()=>Gp}),Gp=`data:text/plain;base64,LS0tCnRpdGxlOiAnVmxhZGltaXIgWm9yaWNoIC0gQW5hbHlzaXMgSScKdGh1bWJuYWlsOiAiaHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNTE5WlFzc3JlT0wuX0FDX1VGMTAwMCwxMDAwX1FMODBfLmpwZyIKc3RhdHVzOiAncmVhZGluZycKbGFzdF91cGRhdGVkOiAyMDI2LTA1LTAxCi0tLQo=`,Kp={class:`main`},qp=[`src`],Jp={style:{display:`flex`,"flex-direction":`column`,"justify-content":`center`,gap:`2px`}},Yp={style:{"font-size":`0.7rem`}},Xp={style:{"font-size":`0.7rem`,"margin-top":`5px`}},Zp=Ip(Gn({__name:`Reading`,props:{reading:{type:Object,required:!0}},setup(e){let t=e,n=J(()=>new Date(t.reading.last_updated).toLocaleDateString(`en-US`,{year:`numeric`,month:`long`,day:`numeric`}));return(e,r)=>(Ri(),Ui(`div`,Kp,[K(`img`,{src:t.reading.thumbnail,style:{height:`100%`}},null,8,qp),K(`div`,Jp,[K(`h3`,null,we(t.reading.title),1),K(`div`,Yp,`Status: `+we(t.reading.status.toUpperCase()),1),K(`div`,Xp,`Last updated: `+we(n.value),1)])]))}}),[[`__scopeId`,`data-v-73169045`]]),Qp={style:{"margin-top":`5px`,width:`100%`,height:`fit-content`,display:`flex`,"flex-direction":`column`,gap:`50px`}},$p={style:{display:`flex`,"flex-direction":`column`,gap:`5px`}},em={style:{display:`flex`,"flex-direction":`column`,gap:`20px`}},tm={style:{display:`flex`,"flex-direction":`column`,gap:`5px`}},nm={style:{display:`flex`,"flex-direction":`column`,gap:`20px`}},rm=Gn({__name:`HomeView`,setup(e){let t=Object.assign({"/src/posts/heightmap.md":yo,"/src/posts/pagerank.md":xo,"/src/posts/prioritypark.md":Co,"/src/posts/qalidad.md":To,"/src/posts/xv6_scheduler.md":Do}),n=Object.assign({"/src/readings/landau_mechanics.txt":Bp,"/src/readings/smirnov_linearalgebra.txt":Hp,"/src/readings/zorich_analysis1.txt":Wp}),r=Object.entries(t).map(([e,t])=>{let{attributes:n,body:r}=(0,il.default)(t);return{slug:e.split(`/`).pop().replace(`.md`,``),...n,content:r}}).sort((e,t)=>new Date(t.date).getTime()-new Date(e.date).getTime()),i=Object.entries(n).map(([e,t])=>{let{attributes:n,body:r}=(0,il.default)(t);return{slug:e.split(`/`).pop().replace(`.md`,``),...n}}).sort((e,t)=>new Date(t.last_updated).getTime()-new Date(e.last_updated).getTime());return(e,t)=>(Ri(),Ui(`div`,Qp,[t[4]||=K(`div`,{style:{"margin-top":`5px`,display:`flex`,"flex-direction":`column`,gap:`5px`}},[K(`div`,{style:{}},[K(`img`,{src:`/samagleo/assets/me2--FoXG0yS.jpg`,style:{width:`300px`,"margin-right":`10px`},align:`left`}),$i(` Hi, I'm Simon! An aspiring mathemetician, currently in my 3rd year of Computer Science at UP Diliman. I mainly find myself interested in theoretical fields, though anything that has to do with calculations and equations on a blackboard piques my interest. `),K(`br`),K(`br`),$i(` When I'm not studying Math and not procastinating studying it either, you will probably find me enjoying hiking, bouldering, and nature-walking in the pines of my hometown in Baguio City, Benguet. `)])],-1),K(`div`,$p,[t[0]||=K(`h3`,{style:{"font-size":`1.1rem`}},`Readings, Digests, & (Some) Solutions`,-1),t[1]||=K(`hr`,null,null,-1),K(`div`,em,[(Ri(!0),Ui(Mi,null,br(Zt(i),e=>(Ri(),Wi(Zp,{key:e.slug,reading:e},null,8,[`reading`]))),128))])]),K(`div`,tm,[t[2]||=K(`h3`,{style:{"font-size":`1.1rem`}},`Projects`,-1),t[3]||=K(`hr`,null,null,-1),K(`div`,nm,[(Ri(!0),Ui(Mi,null,br(Zt(r),e=>(Ri(),Wi(Lp,{key:e.slug,post:e},null,8,[`post`]))),128))])])]))}}),im={class:`main`},am=[`innerHTML`],om=Ip(Gn({__name:`PostView`,setup(e){let t=new dp({html:!0});t.use(Ap);let n=Wo(),r=Object.assign({"/src/posts/heightmap.md":yo,"/src/posts/pagerank.md":xo,"/src/posts/prioritypark.md":Co,"/src/posts/qalidad.md":To,"/src/posts/xv6_scheduler.md":Do})[`/src/posts/${n.params.slug}.md`];if(!r)throw Error(`Post not found`);let{attributes:i,body:a}=(0,il.default)(r),o={...i,content:a},s=J(()=>t.render(o.content));return(e,t)=>(Ri(),Ui(`div`,im,[K(`div`,{innerHTML:s.value},null,8,am)]))}}),[[`__scopeId`,`data-v-a42f243d`]]),sm=Ec({history:Js(`/samagleo`),routes:[{path:`/`,name:`home`,component:rm},{path:`/posts/:slug`,name:`post`,component:om}]}),cm=go(zp);cm.use(sm),cm.mount(`#app`);
+`:``)+e.getLines(t+1,i,e.tShift[t],!0)+(l&&l.trim()?l:``),d.map=[t,e.line],d.markup=`$$`,!0}let a=e=>{e.inline.ruler.after(`escape`,`math_inline`,r),e.block.ruler.after(`blockquote`,`math_block`,i,{alt:[`paragraph`,`reference`,`blockquote`,`list`]}),e.renderer.rules.math_inline=function(e,t){return Op.tex2svgHtml(e[t].content,{display:!1})},e.renderer.rules.math_block=function(e,t){return Op.tex2svgHtml(e[t].content,{display:!0})}};a.default=a,t.exports=a})})(),jp={class:`main`},Mp={class:`msg_body`},Np=[`innerHTML`],Pp={style:{"font-size":`0.7rem`,"margin-top":`auto`}},Fp=Gn({__name:`Post`,props:{post:{type:Object,required:!0}},setup(e){let t=new dp;t.use(Ap);let n=e,r=J(()=>t.renderInline(n.post.title)),i=J(()=>t.renderInline(n.post.summary)),a=J(()=>new Date(n.post.date).toLocaleDateString(`en-US`,{year:`numeric`,month:`long`,day:`numeric`}));return(t,n)=>{let o=gr(`RouterLink`);return Ri(),Ui(`div`,jp,[K(`div`,Mp,[Yi(o,{to:`/posts/${e.post.slug}`,innerHTML:r.value,style:{"font-size":`0.95rem`,"text-overflow":`ellipsis`,"white-space":`nowrap`,overflow:`hidden`,"margin-bottom":`10px`}},null,8,[`to`,`innerHTML`]),K(`p`,{innerHTML:i.value,style:{"padding-bottom":`10px`}},null,8,Np),K(`p`,Pp,we(a.value),1)])])}}}),Ip=(e,t)=>{let n=e.__vccOpts||e;for(let[e,r]of t)n[e]=r;return n},Lp=Ip(Fp,[[`__scopeId`,`data-v-fb2ae65e`]]),Rp={class:`main`},zp=Ip(Gn({__name:`App`,setup(e){return Object.entries(Object.assign({"/src/posts/heightmap.md":yo,"/src/posts/pagerank.md":xo,"/src/posts/prioritypark.md":Co,"/src/posts/qalidad.md":To,"/src/posts/xv6_scheduler.md":Do})).map(([e,t])=>{let{attributes:n,body:r}=(0,il.default)(t);return{slug:e.split(`/`).pop().replace(`.md`,``),...n,content:r}}),(e,t)=>(Ri(),Ui(`div`,Rp,[t[0]||=K(`header`,null,[K(`div`,{style:{"font-size":`1.2rem`,"margin-bottom":`5px`,color:`#2596be`}},` Simon Benedict A. Magleo `),K(`div`,null,` Undergraduate, Department of Computer Science, University of the Philippines - Diliman `),K(`div`,{style:{"font-size":`0.8rem`}},[$i(` E-mail: `),K(`a`,{href:`mailto:simon.benedict.magleo@gmail.com`},`simon.benedict.magleo@gmail.com`)])],-1),t[1]||=K(`hr`,null,null,-1),Yi(Zt(Tc))]))}}),[[`__scopeId`,`data-v-872645db`]]),Bp=c({default:()=>Vp}),Vp=`data:text/plain;base64,LS0tCnRpdGxlOiAnTGFuZGF1ICYgTGlmc2hpdHogLSBNZWNoYW5pY3MnCnRodW1ibmFpbDogImh0dHBzOi8vbS5tZWRpYS1hbWF6b24uY29tL2ltYWdlcy9JLzYxYXBrRUd1UTJMLl9BQ19VRjEwMDAsMTAwMF9RTDgwXy5qcGciCnN0YXR1czogJ3JlYWRpbmcnCmxhc3RfdXBkYXRlZDogMjAyNi0wNS0wMQotLS0K`,Hp=c({default:()=>Up}),Up=`data:text/plain;base64,LS0tCnRpdGxlOiAnVi5JIFNtaXJub3YgLSBMaW5lYXIgQWxnZWJyYSBhbmQgR3JvdXAgVGhlb3J5Jwp0aHVtYm5haWw6ICJodHRwczovL3Byb2RpbWFnZS5pbWFnZXMtYm4uY29tL3BpbWFnZXMvOTc4MDQ4NjI2NTQ1Ml9wMF92Ml9zMTIwMHg2MzAuanBnIgpzdGF0dXM6ICdyZWFkaW5nJwpsYXN0X3VwZGF0ZWQ6IDIwMjYtMDUtMDEKLS0tCg==`,Wp=c({default:()=>Gp}),Gp=`data:text/plain;base64,LS0tCnRpdGxlOiAnVmxhZGltaXIgWm9yaWNoIC0gQW5hbHlzaXMgSScKdGh1bWJuYWlsOiAiaHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNTE5WlFzc3JlT0wuX0FDX1VGMTAwMCwxMDAwX1FMODBfLmpwZyIKc3RhdHVzOiAncmVhZGluZycKbGFzdF91cGRhdGVkOiAyMDI2LTA1LTAxCi0tLQo=`,Kp={class:`main`},qp=[`src`],Jp={style:{display:`flex`,"flex-direction":`column`,"justify-content":`center`,gap:`2px`}},Yp={style:{"font-size":`0.7rem`}},Xp={style:{"font-size":`0.7rem`,"margin-top":`5px`}},Zp=Ip(Gn({__name:`Reading`,props:{reading:{type:Object,required:!0}},setup(e){let t=e,n=J(()=>new Date(t.reading.last_updated).toLocaleDateString(`en-US`,{year:`numeric`,month:`long`,day:`numeric`}));return(e,r)=>(Ri(),Ui(`div`,Kp,[K(`img`,{src:t.reading.thumbnail,style:{height:`100%`}},null,8,qp),K(`div`,Jp,[K(`h3`,null,we(t.reading.title),1),K(`div`,Yp,`Status: `+we(t.reading.status.toUpperCase()),1),K(`div`,Xp,`Last updated: `+we(n.value),1)])]))}}),[[`__scopeId`,`data-v-73169045`]]),Qp={style:{"margin-top":`5px`,width:`100%`,height:`fit-content`,display:`flex`,"flex-direction":`column`,gap:`50px`}},$p={style:{display:`flex`,"flex-direction":`column`,gap:`5px`}},em={style:{display:`flex`,"flex-direction":`column`,gap:`20px`}},tm={style:{display:`flex`,"flex-direction":`column`,gap:`5px`}},nm={style:{display:`flex`,"flex-direction":`column`,gap:`20px`}},rm=Gn({__name:`HomeView`,setup(e){let t=Object.assign({"/src/posts/heightmap.md":yo,"/src/posts/pagerank.md":xo,"/src/posts/prioritypark.md":Co,"/src/posts/qalidad.md":To,"/src/posts/xv6_scheduler.md":Do}),n=Object.assign({"/src/readings/landau_mechanics.txt":Bp,"/src/readings/smirnov_linearalgebra.txt":Hp,"/src/readings/zorich_analysis1.txt":Wp}),r=Object.entries(t).map(([e,t])=>{let{attributes:n,body:r}=(0,il.default)(t);return{slug:e.split(`/`).pop().replace(`.md`,``),...n,content:r}}).sort((e,t)=>new Date(t.date).getTime()-new Date(e.date).getTime()),i=Object.entries(n).map(([e,t])=>{let{attributes:n,body:r}=(0,il.default)(t);return{slug:e.split(`/`).pop().replace(`.md`,``),...n}}).sort((e,t)=>new Date(t.last_updated).getTime()-new Date(e.last_updated).getTime());return(e,t)=>(Ri(),Ui(`div`,Qp,[t[4]||=K(`div`,{style:{"margin-top":`5px`,display:`flex`,"flex-direction":`column`,gap:`5px`}},[K(`div`,{style:{}},[K(`img`,{src:`/samagleo/assets/me2--FoXG0yS.jpg`,style:{width:`300px`,"margin-right":`10px`},align:`left`}),$i(` Hi, I'm Simon! An aspiring mathemetician, currently in my 3rd year of Computer Science at UP Diliman. I mainly find myself interested in theoretical fields, though anything that has to do with calculations and equations on a blackboard piques my interest. `),K(`br`),K(`br`),$i(` When I'm not studying Math and not procastinating studying it either, you will probably find me enjoying hiking, bouldering, and nature-walking in the pines of my hometown in Baguio City, Benguet. `)])],-1),K(`div`,$p,[t[0]||=K(`h3`,{style:{"font-size":`1.1rem`}},`Readings, Digests, & (Some) Solutions`,-1),t[1]||=K(`hr`,null,null,-1),K(`div`,em,[(Ri(!0),Ui(Mi,null,br(Zt(i),e=>(Ri(),Wi(Zp,{key:e.slug,reading:e},null,8,[`reading`]))),128))])]),K(`div`,tm,[t[2]||=K(`h3`,{style:{"font-size":`1.1rem`}},`Projects`,-1),t[3]||=K(`hr`,null,null,-1),K(`div`,nm,[(Ri(!0),Ui(Mi,null,br(Zt(r),e=>(Ri(),Wi(Lp,{key:e.slug,post:e},null,8,[`post`]))),128))])])]))}}),im=`---
+title: 'An Image to Heightmap Visualizer Using Three.js'
+summary: 'Early in my freshman year, my friend Jeremiah Buizon and I decided to create a random project in our freetime (that was soon to vanish in the next semester). We ended up creating a small little applet that creates 3D heightmaps based on temperature maps using Three.js.'
+thumbnail: /images/sqrt2.jpg
+date: 2024-06-01
+---
+`,am=`---
+title: 'A Filesystem PageRank Calculator using MapReduce: C-Standard Library Only'
+summary: "Our final project in CS140 (Operating Systems) made us recreate the PageRank calculator using only the C-standard library. No templates were given, strictly mathematical formulas. Through grit (and a good amount of luck), we managed to pull through."
+thumbnail: /images/sqrt2.jpg
+date: 2025-12-03
+---
+# A Filesystem PageRank Calculator using MapReduce: C-Standard Library Only
+
+This is probably one of the projects I am most proud of, not only because I managed to pull through the subject it was for without taking a final exam (it's a long story), but also because it was the first time I've ever translated purely mathematical ideas into a large-scale coding projects.
+
+<br />
+
+Without getting into the nitty-gritty (I've already left the specifications and the github repository should the reader be curious), what we essentially had to do is recreate PageRank but for a filesystem.
+
+<br />
+
+Now, PageRank basically ranks nodes based on the probability of a user transitioning to them based on their current location. Through some *interesting* mathematics (Markov Chains), we can essentially determine how likely a user is to end up at certain files if they were to just randomly click links. 
+
+<br />
+
+This calculation leans heavily into eigenvectors, more specifically, it uses repeated matrix multiplication to find a stable probability distribution from which we can derive our ranking. Such an operation is often tedious in terms of both time and memory. Hence, *MapReduce* is used to operate independently on slices of the matrices and combine the results together, basically allowing us to thread operations to speed up overall computation time. To solve the memory problem, Compressed Sparse Row (CSR) matrices were used to store the various stages of the operation.
+
+<br />
+
+In the end, we created a tool that can handle 100,000+ files and 300,000+ links with ease, competing with other PageRank implementations you see in libraries.
+
+* [Github](https://github.com/hippo23/PageRank-Calculator-CSR)
+
+<iframe
+  src="https://drive.google.com/file/d/1JMNO1vEMaAbSkh2TgQ8amqj-OxguBb3Q/preview"
+  width="100%"
+  height="600"
+/>
+`,om=`---
+title: 'PriorityPark: An IoT Cup Project'
+summary: 'From May 19, a team of comprising of me and four other classmates were tasked with creating a project using MOSIP authentication. We ended up creating a physical parking barrier for PWDs, which ended up winning 3rd place.'
+thumbnail: /images/sqrt2.jpg
+date: 2026-05-20
+---
+# PriorityPark: An IoT Cup Project
+
+For our capstone project in CS145 (Computer Networks), we were tasked to create some kind of solution that leverages *modular open-source identity platform* (MOSIP) to solve any problem of our choosing.
+
+## Rationale
+
+After circling around a number of ideas, our group settled on creating a barrier that links the national ID of a Filipino Citizen to their status as a PWD, and uses that information to allow or deny somoene parking in PWD parking spaces within public establishments (which are required to exist by law).
+
+## The Steps
+
+I, for one, was involved mostly on the software side. The moving parts were as follows:  
+
+
+  * Database: Cloudflare D1
+  * Server: AWS EC2, FastAPI
+  * Networking Tools: Wireguard
+
+
+Using these tools, we were able to create the following flow:
+
+  1. User scans QR code and the ESP32 validates that the format is as expected.
+  2. Data is sent to server.
+  3. Server verifies that the person is both a Filipino Citizen and a registered PWD by checking the MOSIP testbed (hosted by our department) and the Cloudflare D1 database respectively.
+  4. It sends a denied or approved response back to the ESP32 depending on the previous criteria.
+  5. The barrier then lowers or stays accordingly.
+
+## Results
+
+In the end, we were able to create a usable, modular prototype that can easily be put into any parking lot within a few minutes (provided there are outlets). It ended up winning 3rd place in the IoT Cup held in our department (see evidence below).
+
+<br />
+
+<iframe
+  src="https://drive.google.com/file/d/1OUL-S4zN-Hkyr_I7vV112aC-cW1KRNkc/preview"
+  width="100%"
+  height="480"
+  allow="autoplay"
+/>
+`,sm=`---
+title: 'QA-Lidad: An Auditing System for UP Diliman - Department of Computer Science'
+summary: "Our final project in CS140 (Operating Systems) made us recreate the PageRank calculator using only the C-standard library. No templates were given, strictly mathematical formulas. Through grit (and a good amount of luck), we managed to pull through."
+thumbnail: /images/sqrt2.jpg
+date: 2026-5-17
+---
+
+# QA-Lidad: An Auditing System for the Department of Computer Science
+
+One of the main chokepoints found in many departments across UP Diliman is the lack of centralized record-keeping services in place for internal and external audits. For example, a few months ago, the Department of Computer Science underwent assessment under [AUN-QA](https://www.aunsec.org/discover-aun/thematic-networks/aun-q/aun-qa-member-universities). Internally, UP Diliman has [iAADS](https://qa.up.edu.ph/internal-quality-assurance) to monitor the performance of departments across the university based on a various number of metrics.
+
+## The Solution
+
+To alleviate this, me and a group of my classmates prototyped an auditing system that centralizes the iAADS statistics (but that can be adapted for other audits as well). Some of the records it covers include:
+
+- Publications (local and international)
+- Educational Attainment of Faculty
+- Research Conferences & Awards
+- Faculty SET (ratings given by student) scores
+
+All of these were tracked on a per-semester basis.
+
+### Data Pipeline
+
+Constructing the data pipeline (from storing the records to deriving calculations from them) was my main duty.Based on the scale of the project, calculating metrics directly from the OLTP database could become messy unless normalization was sacrified to a certain degree. To avoid this problem, I opted to create a flow that tracks the changes in the OLTP database using [Estuary Flow](https://estuary.dev/) and materialize these changes into \`.parquet\` files in Google Cloud.
+
+<br />
+
+Once the files were stored on Google Cloud, they could then be read into the [DuckDB](https://duckdb.org/) database, a DBMS optimized for large aggregations. The database itself was structured as a star schema one, further leveraging the speed of DuckDB.
+
+## The Final Result
+
+<iframe
+  src="https://drive.google.com/file/d/1GIi2No4CmMRvfsMMImOD18rMJ2myrKZ8/preview"
+  width="100%"
+  height="480"
+  allow="autoplay"
+/>
+`,cm=`---
+title: 'A Scheduler (and a lot of locks) in xv6'
+summary: 'Our first of two projects in CS140 (operating systems) involved making a scheduler based on custom-specifications. Missing from those specifications was whether or not it should be able to handle multi-tasking. I ended up implementing it (and most of the other parts) anyway.'
+thumbnail: /images/sqrt2.jpg
+date: 2025-10-27
+---
+
+# A Scheduler (and a lot of locks) in xv6
+
+We essentially made a scheduler based on specifications given to us. It was widly impractical and did not have much performance benefits (an expired and running set of processes, meaning that once a process was in the expired set, it would have to wait for a "flip" before running again), it was rather complicated to implement, so I believe it is at least a good demonstration of what we learned regarding OS programming.
+
+## Specifications
+
+<iframe
+  src="https://drive.google.com/file/d/1dIVFp8nDAzRuU1YPkc3Uukszpq4pwRqf/preview"
+  width="100%"
+  height="600"
+>
+</iframe>
+
+## Some of the Locks
+
+To give a bit of an example of the awful locks we had to deal with:
+
+<br />
+
+\`\`\`c
+void transfer_queue(struct queue *o, struct queue *d, int reset)
+{
+  if (!holding(&o->lock))
+    panic("transfer_runnable: should be holding origin lock");
+
+  if (!reset){
+    if (!holding(&d->lock))
+      panic("transfer_runnable: should be holding destination lock");
+  }
+
+  transfer_runnable(o, d, reset);
+  transfer_running(o, d, reset);
+}
+\`\`\`
+
+<br />
+
+This function was used whenever a queue quanta expires. In particular, it transfered the processes that were not currently running. As you would expect, there would be another function to handle the currently running process.
+
+<br />
+
+\`\`\`c
+void transfer_running(struct queue *o, struct queue *d, int reset)
+{
+  if (!holding(&o->lock))
+    panic("transfer_runnable: should be holding origin lock");
+
+  if (!reset){
+    if (!holding(&d->lock))
+      panic("transfer_runnable: should be holding destination lock");
+
+    struct proc *p;
+    for (p = proc; p < &proc[NPROC]; p++)
+    {
+      acquire(&p->lock);
+      if (p->state == RUNNING && p->rlevel == o->set_idx)
+      {
+        p->quantum = MQSS_PROC_QUANTUM;
+        p->rlevel = d->set_idx;
+        p->level_exp = 1;
+      }
+      release(&p->lock);
+    }
+  } else {
+    struct proc *p;
+    for (p = proc; p < &proc[NPROC]; p++)
+    {
+      acquire(&p->lock);
+      if (p->state == RUNNING && p->rlevel == o->set_idx)
+      {
+        p->quantum = MQSS_PROC_QUANTUM;
+        p->rlevel = p->start_level;
+        p->level_exp = 1;
+      }
+      release(&p->lock);
+    }
+  }
+}
+\`\`\`
+
+<br />
+
+Here, we reset the metadata of the process (for example, the queue it's currently running in, and \`level_exp\`, which handles race conditions where, in multi-tasking, some other process may expire the level quanta of this currently running process).
+
+<br />
+
+That is just a taste of the logic that went into the scheduler, so you may refer to the [Github repository](https://github.com/hippo23/xv6_scheduler/tree/phase4) where the changes are documented in-depth.
+`,lm={class:`main`},um=[`innerHTML`],dm=Ip(Gn({__name:`PostView`,setup(e){let t=new dp({html:!0});t.use(Ap);let n=Wo(),r=Object.assign({"/src/posts/heightmap.md":im,"/src/posts/pagerank.md":am,"/src/posts/prioritypark.md":om,"/src/posts/qalidad.md":sm,"/src/posts/xv6_scheduler.md":cm})[`/src/posts/${n.params.slug}.md`];if(!r)throw Error(`Post not found`);let{attributes:i,body:a}=(0,il.default)(r),o={...i,content:a},s=J(()=>t.render(o.content));return(e,t)=>(Ri(),Ui(`div`,lm,[K(`div`,{innerHTML:s.value},null,8,um)]))}}),[[`__scopeId`,`data-v-2721b366`]]),fm=Ec({history:Js(`/samagleo`),routes:[{path:`/`,name:`home`,component:rm},{path:`/posts/:slug`,name:`post`,component:dm}]}),pm=go(zp);pm.use(fm),pm.mount(`#app`);
