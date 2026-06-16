@@ -61,7 +61,7 @@ readings.sort((a, b) => {
   >
     <div style="margin-top: 5px; display: flex; flex-direction: column; gap: 5px">
       <div class="intro">
-        <img src="/src/assets/me2.jpg" style="width: 300px; margin-right: 10px" />
+        <img src="/src/assets/me2.jpg" class="me" />
         <p style="min-width: 0">
           Hi, I'm Simon! An aspiring mathematician, currently in my 3rd year of Computer Science at
           UP Diliman. I mainly find myself interested in theoretical fields, though anything that
@@ -106,5 +106,10 @@ readings.sort((a, b) => {
 
 .readings * {
   min-width: 0;
+}
+
+.me {
+  width: 300px;
+  margin-right: 10px;
 }
 </style>

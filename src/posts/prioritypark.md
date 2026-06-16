@@ -1,6 +1,6 @@
 ---
 title: 'PriorityPark: An IoT Cup Project'
-summary: 'From May 19, a team of comprising of me and four other classmates were tasked with creating a project using MOSIP authentication. We ended up creating a physical parking barrier for PWDs, which ended up winning 3rd place.'
+summary: 'From May 19, a team of comprising of me and four other classmates were tasked with creating a project using MOSIP authentication. We ended up creating a physical parking barrier for PWDs, winning 3rd place.'
 thumbnail: /images/sqrt2.jpg
 date: 2026-05-20
 ---
@@ -32,7 +32,7 @@ Using these tools, we were able to create the following flow:
 
 ## Results
 
-In the end, we were able to create a usable, modular prototype that can easily be put into any parking lot within a few minutes (provided there are outlets). It ended up winning 3rd place in the IoT Cup held in our department (see evidence below).
+In the end, we were able to create a usable, modular prototype that can easily be put into any parking lot within a few minutes (provided there are outlets). It ended up winning 3rd place in the IoT Cup held in our department (see evidence below). You may also refer to the [Github repository](https://github.com/hippo23/prioritypark_ec2).
 
 <br />
 
